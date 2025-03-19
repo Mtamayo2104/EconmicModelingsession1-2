@@ -17,9 +17,11 @@ class Colorpoint(Point):
     def __str__(self):
         return f"<{self.color}: {self.x},{self.y}>"
 
-p= Colorpoint(1,2,"Red")
-print(p.distance_origin())
-print(p)
+
+if __name__ == "__main__":
+    p= Colorpoint(1,2,"Red")
+    print(p.distance_origin())
+    print(p)
 
 # colors = ["red", "green", "blue", "yellow", "black", "magenta", "cyan"
 #           , "white", "burgundy", "periwinkle", "marsala"]
