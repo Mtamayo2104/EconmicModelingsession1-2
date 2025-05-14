@@ -18,17 +18,43 @@ class Point:
         return f"p({self.x},{self.y})"
 
     def __repr__(self):
+        """
+        Returns a string representation of the object by delegating to __str__.
+
+        """
         return self.__str__()
 
     def distance_origin(self):
-        return (self.x**2 + self.y**2)**0.5 # square root of the sum of x and y
+        """
+        Calculates the Euclidean distance from the point to the origin (0, 0).
+
+        The distance is computed as the square root of the sum of the squares
+        of the x and y coordinates of the point.
+        """
+        return (self.x ** 2 + self.y ** 2) ** 0.5  # square root of the sum of x and y
 
     def __gt__(self, other):
+        """
+        Compares this point to another based on their distances from the origin.
+
+        other: Another point object with a distance_origin() method.
+
+        Returns: True if this point's distance from the origin is greater than
+                  the other point's distance, False otherwise.
+        """
         my_distance = self.distance_origin()
         other_distance = other.distance_origin()
         return my_distance > other_distance
 
     def __eq__(self, other):
+        """
+        Compares this point to another based on their distances from the origin.
+
+        other: Another point object with a distance_origin() method.
+
+        Returns: True if this point's distance from the origin equals the other
+                  point's distance, False otherwise.
+        """
         my_distance = self.distance_origin()
         other_distance = other.distance_origin()
         return my_distance == other_distance

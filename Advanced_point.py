@@ -7,7 +7,20 @@ class Pointexception(Exception):
 
 class AdvancedPoint (Colorpoint):
     COLORS = ["red","blue", "green", "yellow", "black", "white", "periwinkle"]
-    def __init__(self, x, y,color):
+
+    def __init__(self, x, y, color):
+        """
+        Validates the color against the class's predefined COLORS list and raises an exception
+        for invalid colors. Initializes the instance with the provided coordinates and color.
+
+        Args:
+            x (int | float): The x-coordinate of the point.
+            y (int | float): The y-coordinate of the point.
+            color (str): The color name for the point. Must be a value from the class's COLORS list.
+
+        Raises:
+            Pointexception: If the specified color is not found in the class's COLORS list.
+        """
         if color not in self.COLORS:
             raise Pointexception(f"invalid color, must be one of {self.COLORS}")
         self._x = x
@@ -16,17 +29,32 @@ class AdvancedPoint (Colorpoint):
 
     @property
     def x(self):
-        return self._x # getter method
+        """
+        gets the x coordinate
+
+        """
+        return self._x# getter method
+
     @x.setter
     def x(self, value):
-        self._x = value #setter method
+        """
+        Set the x-coordinate of the point.
+        """
+        self._x = value
 
     @property
     def y(self):
+        """
+        Get the y-coordinate of the point.
+
+        """
         return self._y
 
     @property
     def color(self):
+        """
+        gets the color of the point
+        """
         return self._color
 
     @classmethod  # class methods applies to the whole class, no individual objects
@@ -45,9 +73,19 @@ class AdvancedPoint (Colorpoint):
         return AdvancedPoint(x,y,color)
     @staticmethod
     def distance_2_points(p1,p2):
+        """
+        measure distances between 2 points
+        :param p1: point 1
+        :param p2: point 2
+        :return: distance between them
+        """
         return ((p1.x - p2.x)**2 +(p1.y - p2.y)**2)**0.5
 
     def distance_other (self, p):
+        """
+        Computes the straight-line distance between this point (self) and another point (p)
+        using the Pythagorean theorem.
+        """
         return ((self.x - p.x)**2 +(self.y - p.y)**2)**0.5
 
 
